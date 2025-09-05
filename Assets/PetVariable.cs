@@ -11,7 +11,7 @@ public class PetVariable : MonoBehaviour
 {
     [Header("Variable Settings")]
     [Tooltip("The current value of this variable.")]
-    public float value;
+    public float value = 0f;
     
     [Tooltip("The minimum allowed value for this variable.")]
     public float minValue = 0f;
@@ -34,9 +34,9 @@ public class PetVariable : MonoBehaviour
     bool VariableExistsInAnimator(Animator animator, string varName)
     {
         bool parameterWasFound = false;
-        for (var i = 0; i < animator.parameterCount; i++)
+        for (var parameterIndex = 0; parameterIndex < animator.parameterCount; parameterIndex++)
         {
-            var parameter = animator.GetParameter(i);
+            var parameter = animator.GetParameter(parameterIndex);
             if (parameter.name == varName)
             {
                 parameterWasFound = true;
