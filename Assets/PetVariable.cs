@@ -21,6 +21,9 @@ public class PetVariable : MonoBehaviour
     [Tooltip("The amount this variable changes per second (e.g., -1 for hunger, 0.5 for energy).")]
     public float changePerSecond = 0f;
 
+    [Tooltip("If true, the value changes in whole-second steps. If false, it changes smoothly every frame.")]
+    public bool updateDiscrete = true;
+
     [Header("UI & Event Coupling")]
     [Tooltip("Event triggered when the PetVariable's value changes, passing the new value.")]
     public UnityEvent<float> onValueChange;
@@ -69,14 +72,21 @@ public class PetVariable : MonoBehaviour
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-
-        if (currentTime >= 1f)
+        if (updateDiscrete)
         {
-            int steps = Mathf.FloorToInt(currentTime);
-            currentTime -= steps;
-
-            SetValue(value + changePerSecond * steps);
+            // Discrete update: step once per full second
+            currentTime += Time.deltaTime;
+            if (currentTime >= 1f)
+            {
+                int steps = Mathf.FloorToInt(currentTime);
+                currentTime -= steps;
+                SetValue(value + changePerSecond * steps);
+            }
+        }
+        else
+        {
+            // Continuous update: smooth change per frame
+            SetValue(value + changePerSecond * Time.deltaTime);
         }
     }
 
