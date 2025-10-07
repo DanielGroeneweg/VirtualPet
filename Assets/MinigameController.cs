@@ -12,10 +12,6 @@ public class MinigameController : MonoBehaviour
     [SerializeField] UnityEvent onCompleted;
 
     List<Button> activeButtons = new();
-    private void Start()
-    {
-        StartMinigame();
-    }
 
     private void Update()
     {
