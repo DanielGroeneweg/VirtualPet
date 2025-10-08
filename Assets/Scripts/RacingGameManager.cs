@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -35,18 +37,20 @@ public class RacingGameManager : MonoBehaviour
 
     public CarController car;
 
+    [Header("Run Stats")]
+    public float distanceTraveled => car.transform.position.x;
+
     [Header("Spline settings")]
     public float spawnDistance;
     public Vector2 randomHeightRange;
     public int startingPoints;
-
-    float totalDistance => raceTrackSpline.Spline.Last().Position.x - raceTrackSpline.Spline.First().Position.x;
 
     private void Update()
     {
         if (Mathf.Abs(car.transform.position.x - raceTrackSpline.Spline[raceTrackSpline.Spline.Count - 1].Position.x) < spawnDistance)
         {
             AddPoint(car.transform.position.x + spawnDistance + 5f);
+            RemoveOldPoint();
         }
     }
 
@@ -58,5 +62,22 @@ public class RacingGameManager : MonoBehaviour
         raceTrackSpline.Spline.Add(knot);
 
         raceTrackSpline.Spline.SetTangentMode(TangentMode.AutoSmooth);
+    }
+    void RemoveOldPoint()
+    {
+        raceTrackSpline.Spline.RemoveAt(0);
+    }
+
+    [Header("Game Over Settings")]
+    public CanvasGroup gameOverScreen;
+    public TMP_Text distanceText;
+
+    public void EndRun()
+    {
+        gameOverScreen.alpha = 1;
+        gameOverScreen.blocksRaycasts = true;
+        gameOverScreen.interactable = true;
+
+        distanceText.text = $"Distance: {distanceTraveled}m";
     }
 }
