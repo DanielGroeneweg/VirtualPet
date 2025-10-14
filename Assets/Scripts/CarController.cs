@@ -19,6 +19,9 @@ public class CarController : MonoBehaviour
     public float groundRayLength = 1;
     public float rotationTorque = 2f;
 
+    [Header("HUD")]
+    public RectTransform fuelbarFill;
+
     public bool isGrounded => 
         Physics.Raycast(wheels[0].transform.position, -wheels[0].transform.up, groundRayLength) 
         ||
@@ -77,6 +80,8 @@ public class CarController : MonoBehaviour
         {
             rigidBody.AddTorque(transform.right * input * rotationTorque, ForceMode.Force);
         }
+
+        fuelbarFill.localScale = new Vector3(1, fuel / maxFuel, 1);
     }
 
     public void Refuel()
