@@ -74,6 +74,8 @@ public class RacingGameManager : MonoBehaviour
 
     public void EndRun()
     {
+        car.canMove = false;
+        
         gameOverScreen.alpha = 1;
         gameOverScreen.blocksRaycasts = true;
         gameOverScreen.interactable = true;
