@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41a8caf39239ff4684203852aa0b572, type: 3}
   m_Name: PetValues
   m_EditorClassIdentifier: Assembly-CSharp::PetValues
-  energy: 100
+  energy: 1
+  anger: 0
   coins: 0

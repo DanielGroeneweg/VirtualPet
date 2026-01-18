@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HilClimbRacing.unity
     guid: 05f963d5a1ff3b749b499ab06987aeef
+  - enabled: 1
+    path: Assets/Scenes/MinigameTest.unity
+    guid: bafb3e647ee1f7a49b88673408beacdd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
