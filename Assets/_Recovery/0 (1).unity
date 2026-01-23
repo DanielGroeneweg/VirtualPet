@@ -3687,7 +3687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f7521c92a007c4d8e31eb901226d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EatTheBurger
-  animator: {fileID: 1128027079}
+  animator: {fileID: 0}
 --- !u!1001 &1044714294
 PrefabInstance:
   m_ObjectHideFlags: 0
