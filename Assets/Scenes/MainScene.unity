@@ -3841,6 +3841,8 @@ GameObject:
   - component: {fileID: 1128027079}
   - component: {fileID: 1128027080}
   - component: {fileID: 1128027081}
+  - component: {fileID: 1128027083}
+  - component: {fileID: 1128027082}
   m_Layer: 7
   m_Name: Pet
   m_TagString: Ground
@@ -3914,7 +3916,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 50
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -3926,7 +3928,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 50
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -3942,6 +3944,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3688cdef7e0a2834ab1663dc2f9758fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PetAnimations
+  animator: {fileID: 1128027079}
+--- !u!114 &1128027082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128027077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1128027083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128027077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09c378d04f8ddb40a3a03e3fc4ad3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackFlip
+  playerinput: {fileID: 1128027082}
+  anger: {fileID: 1992453068}
+  energy: {fileID: 769755334}
   animator: {fileID: 1128027079}
 --- !u!1 &1131945774
 GameObject:
